@@ -243,28 +243,32 @@ async function submitRating() {
 async function searchPhotos() {
   const query = document.getElementById('searchInput').value;
   const token = localStorage.getItem('token');
-  
+
   if (!query) {
     loadPhotos();
     return;
   }
-  
+
   try {
     const response = await fetch(`${consumerBackend}/photos/search?q=${encodeURIComponent(query)}`, {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
     });
 
     if (!response.ok) {
-      throw new Error('Failed to search photos');
+      const errorText = await response.text();
+      console.error("Server responded with error:", response.status, errorText);
+      throw new Error(`Failed to search photos: ${response.status}`);
     }
 
     const results = await response.json();
     displayPhotos(results);
   } catch (err) {
     console.error("Error searching photos:", err);
-    alert("Error searching photos");
+    alert("Error searching photos: " + err.message);
   }
 }
-
 // Make these functions available globally
 window.viewPhotoDetails = viewPhotoDetails;
 window.closeModal = closeModal;
