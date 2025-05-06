@@ -1,5 +1,5 @@
 console.log("creator.js loaded");
-const creatorBackend = "https://photosapp-insta-gca8aafdbygffjbq.canadacentral-01.azurewebsites.net";
+const creatorBackend = "https://photos-app-assignment-hcdad2epdcaza8ac.canadacentral-01.azurewebsites.net/api";
 
 document.addEventListener('DOMContentLoaded', function() {
   const token = localStorage.getItem('token');

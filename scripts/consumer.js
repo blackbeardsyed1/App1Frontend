@@ -1,5 +1,5 @@
 console.log("consumer.js loaded");
-const consumerBackend = "https://photosapp-insta-gca8aafdbygffjbq.canadacentral-01.azurewebsites.net";
+const consumerBackend = "https://photos-app-assignment-hcdad2epdcaza8ac.canadacentral-01.azurewebsites.net/api";
 let selectedPhoto = null;
 let currentRating = 0;
 
