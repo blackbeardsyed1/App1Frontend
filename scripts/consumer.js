@@ -251,9 +251,6 @@ async function searchPhotos() {
   
   try {
     const response = await fetch(`${consumerBackend}/photos/search?q=${encodeURIComponent(query)}`, {
-      headers: {
-        'Authorization': `Bearer ${token}`
-      }
     });
 
     if (!response.ok) {
