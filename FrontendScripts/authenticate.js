@@ -103,13 +103,13 @@ function checkAuthState() {
     }
 
     // Prevent redirection loops
-    if (payload.role === 'consumer' && currentPage !== 'consumer.html') {
-      window.location.href = 'consumer.html';
-    } else if (payload.role === 'creator' && currentPage !== 'creator.html') {
-      window.location.href = 'creator.html';
-    } else if (!['consumer.html', 'creator.html'].includes(currentPage)) {
+    if (payload.role === 'consumer' && currentPage !== 'consumerpage.html') {
+      window.location.href = 'consumerpage.html';
+    } else if (payload.role === 'creator' && currentPage !== 'creatorpage.html') {
+      window.location.href = 'creatorpage.html';
+    } else if (!['consumerpage.html', 'creatorpage.html'].includes(currentPage)) {
       // Default redirect for authenticated users
-      window.location.href = payload.role === 'consumer' ? 'consumer.html' : 'creator.html';
+      window.location.href = payload.role === 'consumer' ? 'consumerpage.html' : 'creatorpage.html';
     }
   } catch (e) {
     localStorage.removeItem('token');
