@@ -1,140 +1,121 @@
 :root {
-  --primary-color: #405de6; /* Instagram Blue */
-  --secondary-color: #833ab4; /* Instagram Purple */
-  --accent-color: #fd1d1d; /* Instagram Red */
-  --light-color: #fafafa;
-  --dark-color: #262626;
-  --success-color: #4bb543;
-  --error-color: #ff3333;
-  --border-color: #dbdbdb;
+  --primary-color: #ff6f61; /* Coral */
+  --secondary-color: #4a4a4a; /* Dark Gray */
+  --accent-color: #ffa69e; /* Light Coral */
+  --light-color: #fff5f3;
+  --dark-color: #2e2e2e;
+  --success-color: #00b894;
+  --error-color: #d63031;
+  --border-color: #ffe6e0;
   --font-stack: 'Poppins', sans-serif;
 }
 
 body {
-  background-color: var(--light-color);
   font-family: var(--font-stack);
+  display: flex;
+  background-color: var(--light-color);
   color: var(--dark-color);
   margin: 0;
-  padding: 0;
 }
 
-header {
-  background: white;
-  padding: 15px 30px;
-  border-bottom: 1px solid var(--border-color);
+nav.sidebar {
+  width: 240px;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 30px;
+  height: 100vh;
+  position: fixed;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  gap: 20px;
 }
 
-header h1 {
-  font-weight: 600;
+nav.sidebar h1 {
   font-size: 24px;
+}
+
+nav.sidebar .search-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+nav.sidebar input {
+  padding: 12px;
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+  font-size: 14px;
+}
+
+nav.sidebar button.logout-btn {
+  margin-top: auto;
+  padding: 10px 20px;
+  background-color: white;
+  color: var(--primary-color);
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.main-content {
+  margin-left: 240px;
+  padding: 30px;
+  width: 100%;
+}
+
+header h2 {
+  font-size: 24px;
+  font-weight: 600;
   color: var(--primary-color);
 }
 
-.logout-btn {
-  background: var(--accent-color);
-  color: white;
-  border: none;
-  padding: 8px 14px;
-  border-radius: 20px;
-  cursor: pointer;
-  font-weight: 500;
-}
-
-.container {
-  padding: 20px;
-  max-width: 1000px;
-  margin: auto;
-}
-
-.dashboard-header {
+.photo-feed {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 25px;
-}
-
-.search-bar {
-  display: flex;
-  width: 100%;
-  max-width: 500px;
-  border: 1px solid var(--border-color);
-  border-radius: 30px;
-  overflow: hidden;
-}
-
-.search-bar input {
-  border: none;
-  padding: 10px 15px;
-  flex: 1;
-  outline: none;
-}
-
-.search-bar button {
-  background: var(--primary-color);
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-weight: 500;
-}
-
-.photo-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  flex-direction: column;
   gap: 20px;
 }
 
 .photo-card {
-  background: white;
-  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   overflow: hidden;
   border: 1px solid var(--border-color);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s;
-}
-
-.photo-card:hover {
-  transform: scale(1.01);
 }
 
 .photo-card img {
   width: 100%;
-  height: 300px;
+  height: auto;
   object-fit: cover;
-}
-
-.photo-info {
-  padding: 15px;
+  border-radius: 8px;
 }
 
 .photo-info h3 {
   margin: 0;
+  color: var(--primary-color);
   font-weight: 600;
   font-size: 18px;
-  color: var(--dark-color);
 }
 
 .photo-meta {
-  color: #999;
-  font-size: 14px;
-  margin-top: 8px;
+  color: var(--secondary-color);
+  font-size: 13px;
 }
 
 .photo-actions {
   display: flex;
   gap: 10px;
-  margin-top: 10px;
 }
 
 .photo-actions button {
-  flex: 1;
-  padding: 8px;
+  padding: 10px;
   font-size: 14px;
-  border: none;
-  border-radius: 5px;
+  border-radius: 8px;
+  background-color: var(--accent-color);
+  color: var(--dark-color);
   cursor: pointer;
 }
 
@@ -150,13 +131,13 @@ header h1 {
 }
 
 .modal-content {
-  background: white;
-  border-radius: 15px;
-  width: 95%;
-  max-width: 600px;
+  background-color: white;
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 500px;
+  width: 90%;
   max-height: 90vh;
   overflow-y: auto;
-  padding: 20px;
 }
 
 .modal-header {
@@ -172,33 +153,31 @@ header h1 {
 .close-modal {
   background: none;
   border: none;
-  font-size: 28px;
+  font-size: 24px;
+  color: var(--error-color);
   cursor: pointer;
 }
 
 .modal-photo {
   width: 100%;
-  max-height: 450px;
+  height: 300px;
   object-fit: contain;
-  border-radius: 10px;
-  margin: 20px 0;
+  border-radius: 8px;
 }
 
-.rating-section h4,
-.comments-section h4 {
-  margin-bottom: 10px;
-  font-weight: 500;
+.rating-section {
+  margin-top: 15px;
 }
 
 .star-rating {
   display: flex;
-  gap: 8px;
+  gap: 5px;
 }
 
 .star {
-  font-size: 26px;
+  font-size: 18px;
   cursor: pointer;
-  color: #ccc;
+  color: #ddd;
 }
 
 .star.active {
@@ -206,19 +185,19 @@ header h1 {
 }
 
 .comments-section {
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
 .comment {
-  background: #f0f0f0;
+  background: #ffe6e0;
   border-radius: 10px;
-  padding: 10px 15px;
+  padding: 10px 14px;
   margin-bottom: 10px;
 }
 
 .comment-user {
   font-weight: 600;
-  margin-bottom: 5px;
+  margin-bottom: 4px;
   color: var(--primary-color);
 }
 
@@ -237,28 +216,30 @@ textarea.form-control {
 }
 
 .btn {
-  background: var(--primary-color);
+  background-color: var(--primary-color);
   color: white;
   border: none;
   padding: 10px 15px;
-  margin-top: 10px;
-  border-radius: 25px;
-  font-weight: 500;
+  border-radius: 20px;
   cursor: pointer;
+  margin-top: 10px;
+  font-weight: 600;
 }
 
 @media (max-width: 768px) {
-  .photo-grid {
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  .main-content {
+    margin-left: 0;
   }
 
-  .dashboard-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 15px;
+  nav.sidebar {
+    width: 200px;
   }
 
-  .search-bar {
-    width: 100%;
+  .modal-content {
+    padding: 16px;
   }
-} 
+
+  .photo-card img {
+    height: 200px;
+  }
+}
