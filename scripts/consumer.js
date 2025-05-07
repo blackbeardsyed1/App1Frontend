@@ -1,4 +1,3 @@
-console.log("consumer.js loaded");
 const consumerBackend = "https://photos-app-assignment-hcdad2epdcaza8ac.canadacentral-01.azurewebsites.net/api";
 let selectedPhoto = null;
 let currentRating = 0;
@@ -10,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     return;
   }
 const username = getUsernameFromToken(token);
-document.getElementById('user').textContent = `SnapSphere, ${username}`;
+document.getElementById('user').textContent = `SnapSphere - ${username}`;
 
   
   setupStarRating();
