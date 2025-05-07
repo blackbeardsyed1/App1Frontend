@@ -114,7 +114,7 @@ function viewPhotoDetails(title, imageUrl, caption, location) {
   document.getElementById('modalTitle').textContent = title;
   document.getElementById('modalImage').src = imageUrl;
   document.getElementById('modalCaption').textContent = caption || '';
-  document.getElementById('modalLocation').textContent = location ? `📍 ${location}` : '';
+  document.getElementById('modalLocation').textContent = location ? `Location: ${location}` : '';
   
   // Load comments for this photo
   loadComments(title);
