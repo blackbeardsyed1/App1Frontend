@@ -8,60 +8,62 @@
   <link href="styles/consumer.css" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <h1 id="user">📷 SnapStream</h1>
+  <!-- Sidebar Navigation -->
+  <nav class="sidebar">
+    <h1>SnapStream</h1>
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search by title, user, or location..." />
+    </div>
     <button class="logout-btn" id="logoutBtn">Sign Out</button>
-  </header>
+  </nav>
 
-  <main class="container">
-    <section class="feed-section">
-      <div class="feed-header">
-        <h2>Explore Recent Captures</h2>
-        <div class="search-bar">
-          <input type="text" id="searchInput" placeholder="Search by title, user, or location..." />
-          <button id="searchBtn">Go</button>
-        </div>
+  <!-- Main Content Area -->
+  <div class="main-content">
+    <div class="feed-header">
+      <h2>Fresh Moments Shared by Our Users</h2>
+    </div>
+
+    <!-- Photo Feed Section -->
+    <div id="photos" class="photo-feed">
+      <!-- Dynamic photo cards will appear here -->
+    </div>
+  </div>
+
+  <!-- Modal View -->
+  <div id="photoModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modalTitle"></h3>
+        <button class="close-modal" id="closeModalBtn">&times;</button>
       </div>
 
-      <div id="photos" class="photo-feed"></div>
-    </section>
+      <div class="modal-body">
+        <img id="modalImage" class="modal-photo" src="" alt="Photo"/>
+        <p class="photo-meta" id="modalCaption"></p>
+        <p class="photo-meta" id="modalLocation"></p>
 
-    <!-- Modal View -->
-    <div id="photoModal" class="modal">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h3 id="modalTitle"></h3>
-          <button class="close-modal" id="closeModalBtn">&times;</button>
+        <div class="rating-section">
+          <h4>Rate This Snap</h4>
+          <div class="star-rating" id="starRating">
+            <span class="star" data-value="1">★</span>
+            <span class="star" data-value="2">★</span>
+            <span class="star" data-value="3">★</span>
+            <span class="star" data-value="4">★</span>
+            <span class="star" data-value="5">★</span>
+          </div>
+          <button id="submitRatingBtn" class="btn">Submit Rating</button>
+          <p id="photoAverageRating">Average: Loading...</p>
         </div>
 
-        <div class="modal-body">
-          <img id="modalImage" class="modal-photo" src="" alt="Photo"/>
-          <p class="photo-meta" id="modalCaption"></p>
-          <p class="photo-meta" id="modalLocation"></p>
-
-          <div class="rating-section">
-            <h4>Rate This Snap</h4>
-            <div class="star-rating" id="starRating">
-              <span class="star" data-value="1">★</span>
-              <span class="star" data-value="2">★</span>
-              <span class="star" data-value="3">★</span>
-              <span class="star" data-value="4">★</span>
-              <span class="star" data-value="5">★</span>
-            </div>
-            <button id="submitRatingBtn" class="btn">Submit Rating</button>
-            <p id="photoAverageRating">Average: Loading...</p>
-          </div>
-
-          <div class="comments-section">
-            <h4>Viewer Comments</h4>
-            <div id="commentsList"></div>
-            <textarea id="commentText" class="form-control" placeholder="Share your thoughts..." rows="3"></textarea>
-            <button id="submitCommentBtn" class="btn">Add Comment</button>
-          </div>
+        <div class="comments-section">
+          <h4>Viewer Comments</h4>
+          <div id="commentsList"></div>
+          <textarea id="commentText" class="form-control" placeholder="Share your thoughts..." rows="3"></textarea>
+          <button id="submitCommentBtn" class="btn">Add Comment</button>
         </div>
       </div>
     </div>
-  </main>
+  </div>
 
   <script>
     document.getElementById('logoutBtn').addEventListener('click', () => {
@@ -73,6 +75,7 @@
     document.getElementById('closeModalBtn').addEventListener('click', () => {
       modal.style.display = 'none';
     });
+
     window.addEventListener('click', (e) => {
       if (e.target === modal) modal.style.display = 'none';
     });
