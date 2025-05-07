@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     return;
   }
 const username = getUsernameFromToken(token);
-document.getElementById('user').textContent = `Photo Sharing App - ${username}`;
+document.getElementById('user').textContent = ` 🎨 SnapSphere Studio - Creator Portal - ${username}`;
   loadUploadedPhotos();
   document.getElementById("uploadBtn").addEventListener("click", uploadPhoto);
 
