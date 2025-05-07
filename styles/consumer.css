@@ -107,8 +107,8 @@ header h1 {
 .photo-card img {
   width: 100%;
   max-height: 150px;  /* You can reduce this further if needed */
-  object-fit: cover;
-  border-radius: 10px;
+  object-fit: contain;
+  border-radius: 5px;
 }
 
 .photo-info {
