@@ -8,25 +8,28 @@
   <link href="styles/consumer.css" rel="stylesheet">
 </head>
 <body>
-  <!-- Sidebar Navigation -->
-  <nav class="sidebar">
-    <h1>Snap Sphere</h1>
-    <div class="search-bar">
-      <input type="text" id="searchInput" placeholder="Search photos..."/>
-      <button id="searchBtn">Search</button>
-    </div>
-    <button class="logout-btn" id="logoutBtn">Logout</button>
-  </nav>
+  <div class="app-container">
+    <!-- Vertical Navigation -->
+    <nav class="sidebar">
+      <div class="sidebar-header">
+        <h1>📸 CoralGram</h1>
+      </div>
+      <div class="sidebar-menu">
+        <button class="logout-btn" id="logoutBtn">Logout</button>
+      </div>
+    </nav>
 
-  <!-- Main Content Area -->
-  <div class="main-content">
-    <header>
-      <h2>Search Photos</h2>
-    </header>
-    
-    <div id="photos" class="photo-feed">
-      <!-- Dynamically generated photos will appear here -->
-    </div>
+    <!-- Main Content -->
+    <main class="content">
+      <div class="photo-feed">
+        <div class="search-container">
+          <input type="text" id="searchInput" placeholder="Search photos..."/>
+          <button id="searchBtn">Search</button>
+        </div>
+
+        <div id="photos" class="photo-list"></div>
+      </div>
+    </main>
   </div>
 
   <!-- Photo Modal -->
@@ -53,8 +56,8 @@
             <span class="star" data-value="5">★</span>
           </div>
           <button id="submitRatingBtn" class="btn">Submit Rating</button>
-          <p id="photoAverageRating">Average Rating: Loading...</p>
         </div>
+        <p id="photoAverageRating">Average Rating: Loading...</p>
 
         <div class="comments-section">
           <h4>Comments</h4>
@@ -69,13 +72,11 @@
   </div>
 
   <script>
-    // Logout functionality
     document.getElementById('logoutBtn').addEventListener('click', () => {
       localStorage.removeItem('token');
       window.location.href = 'index.html';
     });
 
-    // Modal close functionality
     const modal = document.getElementById('photoModal');
     const closeModalBtn = document.getElementById('closeModalBtn');
 
@@ -83,14 +84,12 @@
       modal.style.display = 'none';
     });
 
-    // Optional: close modal if user clicks outside modal-content
     window.addEventListener('click', (event) => {
       if (event.target === modal) {
         modal.style.display = 'none';
       }
     });
   </script>
-
   <script src="scripts/auth.js" defer></script>
   <script src="scripts/consumer.js" defer></script>
 </body>
