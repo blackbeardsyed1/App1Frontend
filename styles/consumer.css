@@ -143,30 +143,37 @@ header h1 {
 
 .modal-content {
   background-color: var(--white);
-  padding: 1.5rem;
-  border-radius: 12px;
-  max-width: 500px;
+  padding: 2rem;
+  border-radius: 16px;
+  max-width: 550px;
   width: 90%;
   max-height: 90vh;
   overflow-y: auto;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .modal-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 2px solid var(--gray-light);
+  padding-bottom: 0.5rem;
 }
 
 .modal-header h3 {
   color: var(--coral);
+  font-size: 1.4rem;
+  font-weight: 600;
   margin: 0;
 }
 
 .close-modal {
   background: none;
   border: none;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   color: var(--coral);
   cursor: pointer;
 }
@@ -174,30 +181,38 @@ header h1 {
 .modal-photo {
   width: 100%;
   height: auto;
-  border-radius: 10px;
-  margin-top: 1rem;
+  border-radius: 12px;
+  object-fit: contain;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
-
 .photo-meta {
-  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #fff;
+  border: 1px solid var(--gray-light);
+  border-radius: 12px;
   font-size: 0.95rem;
   color: var(--gray-dark);
 }
 
+
+
 .rating-section {
-  margin-top: 1rem;
+  background-color: var(--gray-light);
+  padding: 1rem;
+  border-radius: 12px;
 }
 
 .star-rating {
   display: flex;
-  gap: 5px;
-  margin: 0.5rem 0;
+  gap: 6px;
+  margin: 0.4rem 0 0.8rem;
 }
 
 .star {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   cursor: pointer;
-  color: #ddd;
+  color: #ccc;
+  transition: color 0.2s ease;
 }
 
 .star.active {
@@ -215,7 +230,9 @@ header h1 {
 }
 
 .comments-section {
-  margin-top: 1.5rem;
+  background-color: var(--coral-bg);
+  padding: 1rem;
+  border-radius: 12px;
 }
 
 textarea.form-control {
@@ -224,12 +241,23 @@ textarea.form-control {
   border: 1px solid var(--coral-light);
   padding: 0.6rem;
   resize: none;
+  margin-top: 0.5rem;
 }
 
 .comment {
-  background-color: var(--coral-bg);
+  background-color: var(--white);
   border-left: 4px solid var(--coral);
-  padding: 0.8rem;
-  margin-bottom: 0.8rem;
-  border-radius: 8px;
+  padding: 0.8rem 1rem;
+  margin-bottom: 0.6rem;
+  border-radius: 10px;
+  font-size: 0.9rem;
 }
+
+.comments-section h4,
+.rating-section h4,
+.photo-meta h4 {
+  font-size: 1.2rem;
+  color: var(--coral);
+  margin-bottom: 0.6rem;
+}
+

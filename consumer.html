@@ -9,14 +9,14 @@
 </head>
 <body>
   <header>
-    <h1 id="user">📸 Photo Sharing App - Consumer</h1>
+    <h1 id="user">Consumer</h1>
     <button class="logout-btn" id="logoutBtn">Logout</button>
   </header>
 
   <div class="container">
     <div class="dashboard">
       <div class="dashboard-header">
-        <h2>Browse Photos</h2>
+        <h2>Search Photos</h2>
         <div class="search-bar">
           <input type="text" id="searchInput" placeholder="Search photos..."/>
           <button id="searchBtn">Search</button>
@@ -29,18 +29,21 @@
     <div id="photoModal" class="modal">
       <div class="modal-content">
         <div class="modal-header">
-          <h3 id="modalTitle"></h3>
+          <h3 id="modalTitle">Photo Details</h3>
           <button class="close-modal" id="closeModalBtn">&times;</button>
         </div>
         <div class="modal-body">
-          <img id="modalImage" class="modal-photo" src="" alt=""/>
-          <div class="photo-meta">
-            <p id="modalCaption"></p>
-            <p id="modalLocation"></p>
+          <img id="modalImage" class="modal-photo" src="" alt="Photo preview"/>
+    
+          <div class="comments-section">
+            <h4>Viewer Reactions</h4>
+            <div id="commentsList"></div>
+            <textarea id="commentText" class="form-control" placeholder="Write a comment..." rows="3"></textarea>
+            <button id="submitCommentBtn" class="btn">Post Comment</button>
           </div>
-          
+    
           <div class="rating-section">
-            <h4>Rate this photo</h4>
+            <h4>Your Take</h4>
             <div class="star-rating" id="starRating">
               <span class="star" data-value="1">★</span>
               <span class="star" data-value="2">★</span>
@@ -48,21 +51,18 @@
               <span class="star" data-value="4">★</span>
               <span class="star" data-value="5">★</span>
             </div>
-            <button id="submitRatingBtn" class="btn">Submit Rating</button>
+            <button id="submitRatingBtn" class="btn">Rate</button>
+            <p id="photoAverageRating">Average Rating: Loading...</p>
           </div>
-          <p id="photoAverageRating">Average Rating: Loading...</p>
-
-          
-          <div class="comments-section">
-            <h4>Comments</h4>
-            <div id="commentsList"></div>
-            <div class="form-group">
-              <textarea id="commentText" class="form-control" placeholder="Write a comment..." rows="3"></textarea>
-            </div>
-            <button id="submitCommentBtn" class="btn">Post Comment</button>
+    
+          <div class="photo-meta">
+            <h4>Info</h4>
+            <p id="modalCaption"></p>
+            <p id="modalLocation"></p>
           </div>
         </div>
       </div>
+    </div>
     </div>
   </div>
   <script>
